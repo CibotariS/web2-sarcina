@@ -5,14 +5,11 @@ class FacultyRepository {
   async getAll(fields = undefined) {
     return await Faculty.findAll({
       attributes: fields,
-      include: [{ model: University, attributes: ['id', 'name'] }],
     });
   }
 
   async getOne(id) {
-    return await Faculty.findByPk(id, {
-      include: [{ model: University, attributes: ['id', 'name'] }],
-    });
+    return await Faculty.findByPk(id);
   }
 
   async create(faculty) {
